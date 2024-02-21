@@ -27,8 +27,8 @@ from tqdm import tqdm
 SIZE = 64
 
 parser = argparse.ArgumentParser()
-parser.add_argument('--data_dir', default='data/SIGNS', help="Directory with the SIGNS dataset")
-parser.add_argument('--output_dir', default='data/64x64_SIGNS', help="Where to write the new data")
+parser.add_argument('--data_dir', default='data\\SIGNS', help="Directory with the SIGNS dataset")
+parser.add_argument('--output_dir', default='data\\64x64_SIGNS', help="Where to write the new data")
 
 
 def resize_and_save(filename, output_dir, size=SIZE):
@@ -36,7 +36,7 @@ def resize_and_save(filename, output_dir, size=SIZE):
     image = Image.open(filename)
     # Use bilinear interpolation instead of the default "nearest neighbor" method
     image = image.resize((size, size), Image.BILINEAR)
-    image.save(os.path.join(output_dir, filename.split('/')[-1]))
+    image.save(os.path.join(output_dir, filename.split('\\')[-1]))
 
 
 if __name__ == '__main__':
