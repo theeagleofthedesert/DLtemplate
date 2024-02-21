@@ -1,3 +1,4 @@
+Learn the pytorch template!
 # Hand Signs Recognition with PyTorch
 
 *Authors: Surag Nair, Olivier Moindrot and Guillaume Genthial*
