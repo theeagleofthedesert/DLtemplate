@@ -1,0 +1,23 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "debug config for train.py",
+            "type": "debugpy",
+            "request": "launch",
+            "python": "F:\\Anaconda\\envs\\learnDL\\python",
+            "args": [
+                "--data_dir",
+                ".\\pytorch\\vision\\data\\64x64_SIGNS",
+                "--model_dir",
+                ".\\pytorch\\vision\\experiments\\base_model",
+            ],      
+            "program": ".\\pytorch\\vision\\train.py",
+            "console": "integratedTerminal",
+            // "env": {"PYTHONPATH": "${workspaceFolder}/libs/"},      # unnecessary in this project
+        }
+    ]
+}
