@@ -6,7 +6,6 @@ import os
 
 import numpy as np
 import torch
-from torch.autograd import Variable
 import utils
 import model.net as net
 import model.data_loader as data_loader
@@ -45,14 +44,12 @@ def evaluate(model, loss_fn, dataloader, metrics, params):
         if params.cuda:
             data_batch, labels_batch = data_batch.cuda(
                 non_blocking=True), labels_batch.cuda(non_blocking=True)
-        # fetch the next evaluation batch
-        data_batch, labels_batch = Variable(data_batch), Variable(labels_batch)
 
         # compute model output
         output_batch = model(data_batch)
         loss = loss_fn(output_batch, labels_batch)
 
-        # extract data from torch Variable, move to cpu, convert to numpy arrays
+        # extract data from torch tensor, move to cpu, convert to numpy arrays
         output_batch = output_batch.data.cpu().numpy()
         labels_batch = labels_batch.data.cpu().numpy()
 

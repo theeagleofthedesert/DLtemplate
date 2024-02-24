@@ -7,7 +7,6 @@ import os
 import numpy as np
 import torch
 import torch.optim as optim
-from torch.autograd import Variable
 from tqdm import tqdm
 
 import utils
@@ -52,9 +51,6 @@ def train(model, optimizer, loss_fn, dataloader, metrics, params):
             if params.cuda:
                 train_batch, labels_batch = train_batch.cuda(
                     non_blocking=True), labels_batch.cuda(non_blocking=True)
-            # convert to torch Variables
-            train_batch, labels_batch = Variable(
-                train_batch), Variable(labels_batch)
 
             # compute model output and loss
             output_batch = model(train_batch)
@@ -69,7 +65,7 @@ def train(model, optimizer, loss_fn, dataloader, metrics, params):
 
             # Evaluate summaries only once in a while
             if i % params.save_summary_steps == 0:
-                # extract data from torch Variable, move to cpu, convert to numpy arrays
+                # extract data from torch tensor, move to cpu, convert to numpy arrays
                 output_batch = output_batch.data.cpu().numpy()
                 labels_batch = labels_batch.data.cpu().numpy()
 
