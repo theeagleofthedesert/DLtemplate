@@ -37,11 +37,11 @@ class Net(nn.Module):
         # each of the convolution layers below have the arguments (input_channels, output_channels, filter_size,
         # stride, padding). We also include batch normalisation layers that help stabilise training.
         # For more details on how to use these layers, check out the documentation.
-        self.conv1 = nn.Conv2d(3, self.num_channels, 3, stride=1, padding=1)
+        self.conv1 = nn.Conv2d(3, self.num_channels, 7, stride=1, padding=3)
         self.bn1 = nn.BatchNorm2d(self.num_channels)
-        self.conv2 = nn.Conv2d(self.num_channels, self.num_channels*2, 3, stride=1, padding=1)
+        self.conv2 = nn.Conv2d(self.num_channels, self.num_channels*2, 7, stride=1, padding=3)
         self.bn2 = nn.BatchNorm2d(self.num_channels*2)
-        self.conv3 = nn.Conv2d(self.num_channels*2, self.num_channels*4, 3, stride=1, padding=1)
+        self.conv3 = nn.Conv2d(self.num_channels*2, self.num_channels*4, 7, stride=1, padding=3)
         self.bn3 = nn.BatchNorm2d(self.num_channels*4)
 
         # 2 fully connected layers to transform the output of the convolution layers to the final output
